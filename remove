@@ -1,4 +1,4 @@
-public long removeNames(long id, java.util.List<Long> list) 
+   public long removeNames(long id, java.util.List<Long> list) 
     {
     	int deleted = 0;
     	for(int j=0;j<list.size();j++)
@@ -7,11 +7,15 @@ public long removeNames(long id, java.util.List<Long> list)
     		//Now we received the corresponding ids.
     		for(int k=0;k<Corresponding_ids.size();k++)
     		{
-    			idandDescMap.remove(Corresponding_ids.get(k));
-    			//Removing those ids.
-    			deleted++;
+    			if(Corresponding_ids.get(k) == id)
+    			{
+    				idandDescMap.remove(Corresponding_ids.get(k));
+    				//Removing those ids.
+        			deleted++;
+    			}
     		}
     	}
     	
-    	return 0;
+    	return deleted;
     }
+    
